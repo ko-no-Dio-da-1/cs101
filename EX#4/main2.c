@@ -2,14 +2,27 @@
 
 int main()
 {
-   double n = 0.0;  
-   for(int i = 0; i < 300000; i++) {
-       n = n + 4.0 / (2 * i + 1);  
-       n = n - 4.0 / (2 * i + 3); 
-       i++;
-      
+   double pi = 4.0; 
+   int flag=1;
+   long ipi=0;
+   int x =0;
+   for(int i = 3; i < 1000000; i+=2) {
+       if (flag==0){
+           pi+=(4.0/i);
+           flag++;
+       }
+    else{
+        pi-=(4.0/i);
+        flag--;
+    }  
+   ipi =pi*100000;
+   if(ipi==314159 ){
+       x=i;
+       break;
    }
-   printf("%.5f", n);  
+
+   }
+   printf("%d %.5f\n",x, pi);  
 
    return 0;
 }
